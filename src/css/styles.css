@@ -7,9 +7,10 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
+  background-color: #009a76;
   color: #212121;
   line-height: 1.5;
+  padding: 150px;
 }
 
 #search-box {
@@ -17,4 +18,5 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+  border: 5px #064436;
 }
