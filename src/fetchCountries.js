@@ -1,14 +1,14 @@
-const SOURCE_URL = 'https://restcountries.com/v3.1/name';
+const source = 'https://restcountries.com/v3.1/name';
 
-function fetchCountries(name) {
-  fetch(
-    `${SOURCE_URL}/${name}?fields=name,capital,population,flags,languages`
+const fetchCountries = name => {
+  return fetch(
+    `${source}/${name}?fields=name,capital,population,flags,languages`
   ).then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
+    if (response.status === 404) {
+      return Promise.reject(new Error());
     }
     return response.json();
   });
-}
+};
 
 export { fetchCountries };

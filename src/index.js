@@ -1,5 +1,5 @@
 import './css/styles.css';
-import { fetchCountries } from './fetchCountries.js';
+import { fetchCountries } from './fetchCountries';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import debounce from 'lodash.debounce';
 
@@ -38,7 +38,7 @@ function createCountries(countries) {
   if (countries.length > 1) {
     const markup = countries
       .map(({ name, flags }) => {
-        return `<li><img src ="${flags.svg}" width = "50" /> ${name}</li>`;
+        return `<li><img src ="${flags.svg}" width = "50" /> ${name.official}</li>`;
       })
       .join('');
 
@@ -49,10 +49,12 @@ function createCountries(countries) {
   if (countries.length === 1) {
     const makrupObj = countries
       .map(({ name, flags, capital, population, languages }) => {
-        return `<li> <img src ="${flags.svg}" width = "70" /> ${name} </li>
+        return `<li> <img src ="${flags.svg}" width = "70" /> ${
+          name.official
+        } </li>
         <p> Capital: <span> ${capital} </span> </p>
         <p> Population: <span> ${population} </span> </p>
-        <p> Languages: <span> ${languages} </span> </p>
+        <p> Languages: <span> ${Object.values(languages)} </span> </p>
         `;
       })
       .join('');
